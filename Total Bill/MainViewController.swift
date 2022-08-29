@@ -38,7 +38,8 @@ class MainViewController: UIViewController {
         return label
     } ()
 
-    let totalBillView = TotalBillView()
+    private lazy var totalBillView = TotalBillView()
+    private lazy var personsView = PersonsView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class MainViewController: UIViewController {
         view.addSubview(logoImageView)
         view.addSubview(descriptionLabel)
         view.addSubview(totalBillView)
+        view.addSubview(personsView)
     }
 
     func setupLayout() {
@@ -71,7 +73,12 @@ class MainViewController: UIViewController {
             totalBillView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
             totalBillView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             totalBillView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            totalBillView.heightAnchor.constraint(equalToConstant: 150)
+            totalBillView.heightAnchor.constraint(equalToConstant: 130),
+
+            personsView.topAnchor.constraint(equalTo: totalBillView.bottomAnchor, constant: 10),
+            personsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            personsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            personsView.heightAnchor.constraint(equalToConstant: 130)
         ])
 
     }
