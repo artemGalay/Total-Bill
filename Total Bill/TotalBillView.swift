@@ -13,14 +13,14 @@ class TotalBillView: UIView {
         let label = UILabel()
         label.text = "Total Bill"
         label.textColor = #colorLiteral(red: 0.2454499006, green: 0.2894837558, blue: 0.3496103287, alpha: 1)
-        label.font = UIFont(name: "Avenir Next Bold", size: 14)
+        label.font = UIFont(name: "Avenir Next", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     } ()
 
     private lazy var summTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = #colorLiteral(red: 0.9561659694, green: 0.9591339231, blue: 0.9530903697, alpha: 1)
+        textField.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.9529411765, alpha: 1)
         textField.layer.cornerRadius = 10
         textField.textColor = .black
         textField.font = UIFont(name: "Avenir Next Bold", size: 48)
