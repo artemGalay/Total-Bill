@@ -12,6 +12,7 @@
 		D954669028BCC94E003AAD10 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954668F28BCC94E003AAD10 /* MainViewController.swift */; };
 		D954669528BCC94E003AAD10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D954669428BCC94E003AAD10 /* Assets.xcassets */; };
 		D954669828BCC94E003AAD10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D954669628BCC94E003AAD10 /* LaunchScreen.storyboard */; };
+		D95466A028BCD3E3003AAD10 /* TotalBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954669F28BCD3E3003AAD10 /* TotalBillView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D954669428BCC94E003AAD10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D954669728BCC94E003AAD10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D954669928BCC94E003AAD10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D954669F28BCD3E3003AAD10 /* TotalBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalBillView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				D954668B28BCC94E003AAD10 /* AppDelegate.swift */,
 				D954668D28BCC94E003AAD10 /* SceneDelegate.swift */,
 				D954668F28BCC94E003AAD10 /* MainViewController.swift */,
+				D954669F28BCD3E3003AAD10 /* TotalBillView.swift */,
 				D954669428BCC94E003AAD10 /* Assets.xcassets */,
 				D954669628BCC94E003AAD10 /* LaunchScreen.storyboard */,
 				D954669928BCC94E003AAD10 /* Info.plist */,
@@ -134,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95466A028BCD3E3003AAD10 /* TotalBillView.swift in Sources */,
 				D954669028BCC94E003AAD10 /* MainViewController.swift in Sources */,
 				D954668C28BCC94E003AAD10 /* AppDelegate.swift in Sources */,
 				D954668E28BCC94E003AAD10 /* SceneDelegate.swift in Sources */,
