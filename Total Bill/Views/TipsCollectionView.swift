@@ -25,10 +25,6 @@ class TipsCollectionView: UICollectionView {
         dataSource = self
 
     }
-
-    private func setupLayuot() {
-
-    }
 }
 
 extension TipsCollectionView : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -39,8 +35,9 @@ extension TipsCollectionView : UICollectionViewDelegate, UICollectionViewDataSou
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TipsCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         return cell
     }
 
