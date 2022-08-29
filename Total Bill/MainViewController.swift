@@ -38,6 +38,17 @@ class MainViewController: UIViewController {
         return label
     } ()
 
+    private lazy var calculateButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Calculate", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = #colorLiteral(red: 0.5647058824, green: 0.1529411765, blue: 0.5568627451, alpha: 1)
+        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    } ()
+
     private lazy var totalBillView = TotalBillView()
     private lazy var personsView = PersonsView()
 
@@ -54,6 +65,7 @@ class MainViewController: UIViewController {
         view.addSubview(descriptionLabel)
         view.addSubview(totalBillView)
         view.addSubview(personsView)
+        view.addSubview(calculateButton)
     }
 
     func setupLayout() {
@@ -78,7 +90,12 @@ class MainViewController: UIViewController {
             personsView.topAnchor.constraint(equalTo: totalBillView.bottomAnchor, constant: 10),
             personsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             personsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            personsView.heightAnchor.constraint(equalToConstant: 130)
+            personsView.heightAnchor.constraint(equalToConstant: 130),
+
+            calculateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            calculateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            calculateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            calculateButton.heightAnchor.constraint(equalToConstant: 60)
         ])
 
     }
