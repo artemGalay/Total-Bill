@@ -9,6 +9,8 @@ import UIKit
 
 class TipsCollectionViewCell: UICollectionViewCell {
 
+    
+
 
 
     override init(frame: CGRect) {
