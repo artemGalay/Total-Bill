@@ -111,7 +111,7 @@ final class MainViewController: UIViewController {
             tipsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             tipsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.14),
 
-            calculateButton.topAnchor.constraint(equalTo: tipsView.bottomAnchor, constant: 5),
+            calculateButton.topAnchor.constraint(equalTo: tipsView.bottomAnchor, constant: 15),
             calculateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             calculateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             calculateButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.06)
