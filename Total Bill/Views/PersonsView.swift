@@ -9,6 +9,8 @@ import UIKit
 
 final class PersonsView: UIView {
 
+    // MARK: - UIElements
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Persons"
@@ -57,6 +59,8 @@ final class PersonsView: UIView {
 
     lazy var counter = 2
 
+    // MARK: - Lifecycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -75,6 +79,8 @@ final class PersonsView: UIView {
         titleLabel.font = UIFont(name: "Avenir Next", size: frame.width / 26.7)
 
     }
+
+    // MARK: - Setup
 
     private func setupHierarchy() {
         translatesAutoresizingMaskIntoConstraints = false
@@ -113,10 +119,11 @@ final class PersonsView: UIView {
         ])
     }
 
+    // MARK: - Setup Actions
+
     @objc private func minusButtonTapped() {
         counter -= 1
         counterLabel.text = "\(counter)"
-
         if counter < 2 {
             minusButton.isEnabled = false
         }

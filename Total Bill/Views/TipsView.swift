@@ -9,6 +9,8 @@ import UIKit
 
 final class TipsView: UIView {
 
+    // MARK: - UIElements
+
     private lazy var tipsLabel: UILabel = {
         let label = UILabel()
         label.text = "Persons"
@@ -28,6 +30,8 @@ final class TipsView: UIView {
     let tipsArray = ["0%", "10%", "15%", "20%"]
     var tipsCount = 1
 
+    // MARK: - Lifecycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -44,6 +48,8 @@ final class TipsView: UIView {
         super.layoutSubviews()
         tipsLabel.font = UIFont(name: "Avenir Next", size: frame.width / 26.7)
     }
+
+    // MARK: - Setup
 
     private func setupHierarchy() {
         translatesAutoresizingMaskIntoConstraints = false

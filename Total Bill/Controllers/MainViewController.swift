@@ -9,6 +9,8 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
+    // MARK: - UIElements
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Total Bill"
@@ -50,11 +52,15 @@ final class MainViewController: UIViewController {
     private lazy var personsView = PersonsView()
     private lazy var tipsView = TipsView()
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHierarchy()
         setupLayout()
     }
+
+    // MARK: - Setup
 
     func setupHierarchy() {
         view.backgroundColor = #colorLiteral(red: 0.9813271165, green: 0.9813271165, blue: 0.9813271165, alpha: 1)
@@ -111,6 +117,8 @@ final class MainViewController: UIViewController {
             calculateButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.06)
         ])
     }
+
+    // MARK: - Setup Actions
 
     @objc private func calculateButtonTapped() {
         guard let totalBill = totalBillView.summTextField.text,

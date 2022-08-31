@@ -9,15 +9,6 @@ import UIKit
 
 class TipsCollectionViewCell: UICollectionViewCell {
 
-    lazy var procentLabel: UILabel = {
-        let label = UILabel()
-        label.text = "10%"
-        label.textColor = .black
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    } ()
-
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -28,6 +19,20 @@ class TipsCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+
+    // MARK: - UIElements
+
+    lazy var procentLabel: UILabel = {
+        let label = UILabel()
+        label.text = "10%"
+        label.textColor = .black
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    } ()
+
+    // MARK: - Lifecycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupHierarchy()
@@ -42,6 +47,8 @@ class TipsCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         procentLabel.font = UIFont(name: "Avenir Next Bold", size: frame.height / 3.5)
     }
+
+    // MARK: - Setup
 
     private func setupHierarchy() {
         backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.9490196078, blue: 0.9411764706, alpha: 1)
