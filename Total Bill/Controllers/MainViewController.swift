@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupLayout()
-}
+    }
 
     func setupHierarchy() {
         view.backgroundColor = #colorLiteral(red: 0.9813271165, green: 0.9813271165, blue: 0.9813271165, alpha: 1)
@@ -69,6 +69,7 @@ class MainViewController: UIViewController {
         view.addSubview(personsView)
         view.addSubview(calculateButton)
         view.addSubview(tipsView)
+        addTap()
     }
 
     func setupLayout() {
@@ -111,16 +112,25 @@ class MainViewController: UIViewController {
         guard let totalBill = totalBillView.summTextField.text,
         let totalBillInt = Int(totalBill) else { return }
 
-
         let summ = totalBillInt + totalBillInt * tipsView.tipsCount / 100
         let persons = personsView.counter
 
         if persons == 0 {
             descriptionLabel.text = "Enter persons count"
+            descriptionLabel.textColor = .red
         } else {
             let result = summ / persons
             descriptionLabel.text = "\(result) per persons"
             descriptionLabel.textColor = .black
         }
+    }
+
+    private func addTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
 }

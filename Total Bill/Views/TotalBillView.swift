@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TotalBillView: UIView {
+final class TotalBillView: UIView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
