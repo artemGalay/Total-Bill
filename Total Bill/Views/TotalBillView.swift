@@ -9,6 +9,8 @@ import UIKit
 
 final class TotalBillView: UIView {
 
+    // MARK: - UIElements
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Total Bill"
@@ -30,6 +32,8 @@ final class TotalBillView: UIView {
         return textField
     } ()
 
+    // MARK: - Lifecycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -49,6 +53,8 @@ final class TotalBillView: UIView {
 
 
     }
+
+    // MARK: - Setup
 
     private func setupHierarchy() {
         translatesAutoresizingMaskIntoConstraints = false
