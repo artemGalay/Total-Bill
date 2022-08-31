@@ -13,7 +13,6 @@ final class MainViewController: UIViewController {
         let label = UILabel()
         label.text = "Total Bill"
         label.textColor = .black
-        label.font = UIFont(name: "Avenir Next Bold", size: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     } ()
@@ -31,9 +30,7 @@ final class MainViewController: UIViewController {
         label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
-        label.numberOfLines = 2
         label.textAlignment = .center
-        label.font = UIFont(name: "Avenir Next Bold", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     } ()
@@ -43,7 +40,6 @@ final class MainViewController: UIViewController {
         button.setTitle("Calculate", for: .normal)
         button.tintColor = .white
         button.backgroundColor = #colorLiteral(red: 0.5647058824, green: 0.1529411765, blue: 0.5568627451, alpha: 1)
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -62,13 +58,21 @@ final class MainViewController: UIViewController {
 
     func setupHierarchy() {
         view.backgroundColor = #colorLiteral(red: 0.9813271165, green: 0.9813271165, blue: 0.9813271165, alpha: 1)
+
         view.addSubview(titleLabel)
+        titleLabel.font = UIFont(name: "Avenir Next Bold", size: view.frame.height / 22.4)
+
         view.addSubview(logoImageView)
         view.addSubview(descriptionLabel)
+        descriptionLabel.font = UIFont(name: "Avenir Next Bold", size: view.frame.height / 60)
+
         view.addSubview(totalBillView)
         view.addSubview(personsView)
-        view.addSubview(calculateButton)
         view.addSubview(tipsView)
+
+        view.addSubview(calculateButton)
+        calculateButton.titleLabel?.font = UIFont(name: "Avenir Next", size: view.frame.height / 44.8)
+
         addTap()
     }
 
@@ -79,32 +83,32 @@ final class MainViewController: UIViewController {
 
             logoImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            logoImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            logoImageView.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.23),
+            logoImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.23),
 
             descriptionLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 15),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
-            totalBillView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            totalBillView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5),
             totalBillView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             totalBillView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            totalBillView.heightAnchor.constraint(equalToConstant: 130),
+            totalBillView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.14),
 
-            personsView.topAnchor.constraint(equalTo: totalBillView.bottomAnchor, constant: 10),
+            personsView.topAnchor.constraint(equalTo: totalBillView.bottomAnchor, constant: 5),
             personsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             personsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            personsView.heightAnchor.constraint(equalToConstant: 130),
+            personsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.14),
 
             tipsView.topAnchor.constraint(equalTo: personsView.bottomAnchor, constant: 10),
             tipsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             tipsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            tipsView.heightAnchor.constraint(equalToConstant: 130),
+            tipsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.14),
 
             calculateButton.topAnchor.constraint(equalTo: tipsView.bottomAnchor, constant: 5),
             calculateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             calculateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            calculateButton.heightAnchor.constraint(equalToConstant: 60),
+            calculateButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.06)
         ])
     }
 
@@ -115,7 +119,7 @@ final class MainViewController: UIViewController {
         let summ = totalBillInt + totalBillInt * tipsView.tipsCount / 100
         let persons = personsView.counter
 
-        if persons == 0 {
+        if persons <= 2 {
             descriptionLabel.text = "Enter persons count"
             descriptionLabel.textColor = .red
         } else {
@@ -130,6 +134,7 @@ final class MainViewController: UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
+
     @objc func hideKeyboard() {
         view.endEditing(true)
     }

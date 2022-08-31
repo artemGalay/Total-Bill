@@ -7,13 +7,12 @@
 
 import UIKit
 
-class PersonsView: UIView {
+final class PersonsView: UIView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Persons"
         label.textColor = #colorLiteral(red: 0.2454499006, green: 0.2894837558, blue: 0.3496103287, alpha: 1)
-        label.font = UIFont(name: "Avenir Next", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     } ()
@@ -49,15 +48,14 @@ class PersonsView: UIView {
 
     private lazy var counterLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = "2"
         label.textColor = .black
         label.textAlignment = .center
-        label.font = UIFont(name: "Avenir Next Bold", size: 48)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     } ()
 
-    lazy var counter = 0
+    lazy var counter = 2
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,6 +66,14 @@ class PersonsView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        counterLabel.font = UIFont(name: "Avenir Next Bold", size: frame.height / 2.6)
+        titleLabel.font = UIFont(name: "Avenir Next", size: frame.width / 26.7)
+
     }
 
     private func setupHierarchy() {
@@ -84,11 +90,12 @@ class PersonsView: UIView {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            titleLabel.heightAnchor.constraint(equalToConstant: 20),
 
             backgroundGrayView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
             backgroundGrayView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             backgroundGrayView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            backgroundGrayView.heightAnchor.constraint(equalToConstant: 100),
+            backgroundGrayView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
 
             minusButton.topAnchor.constraint(equalTo: backgroundGrayView.topAnchor, constant: 0),
             minusButton.leadingAnchor.constraint(equalTo: backgroundGrayView.leadingAnchor, constant: 0),
@@ -110,7 +117,7 @@ class PersonsView: UIView {
         counter -= 1
         counterLabel.text = "\(counter)"
 
-        if counter == 0 {
+        if counter < 2 {
             minusButton.isEnabled = false
         }
     }
