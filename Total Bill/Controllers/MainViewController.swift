@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Total Bill
 //
 //  Created by Артем Галай on 29.08.22.
@@ -45,6 +45,7 @@ class MainViewController: UIViewController {
         button.backgroundColor = #colorLiteral(red: 0.5647058824, green: 0.1529411765, blue: 0.5568627451, alpha: 1)
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     } ()
@@ -104,5 +105,22 @@ class MainViewController: UIViewController {
             calculateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             calculateButton.heightAnchor.constraint(equalToConstant: 60),
         ])
+    }
+
+    @objc private func calculateButtonTapped() {
+        guard let totalBill = totalBillView.summTextField.text,
+        let totalBillInt = Int(totalBill) else { return }
+
+
+        let summ = totalBillInt + totalBillInt * tipsView.tipsCount / 100
+        let persons = personsView.counter
+
+        if persons == 0 {
+            descriptionLabel.text = "Enter persons count"
+        } else {
+            let result = summ / persons
+            descriptionLabel.text = "\(result) per persons"
+            descriptionLabel.textColor = .black
+        }
     }
 }

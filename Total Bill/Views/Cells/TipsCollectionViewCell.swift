@@ -19,7 +19,16 @@ class TipsCollectionViewCell: UICollectionViewCell {
         return label
     } ()
 
-
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                layer.borderWidth = 3
+                layer.borderColor = #colorLiteral(red: 0.5647058824, green: 0.1529411765, blue: 0.5568627451, alpha: 1)
+            } else {
+                layer.borderWidth = 0
+            }
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupHierarchy()

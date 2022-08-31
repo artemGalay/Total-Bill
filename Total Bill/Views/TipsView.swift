@@ -21,11 +21,13 @@ class TipsView: UIView {
     let collectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.backgroundColor = #colorLiteral(red: 0.9813271165, green: 0.9813271165, blue: 0.9813271165, alpha: 1)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     } ()
 
     let tipsArray = ["0%", "10%", "15%", "20%"]
+    var tipsCount = 1
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,7 +82,13 @@ extension TipsView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        switch indexPath.row {
+        case 0: tipsCount = 10
+        case 1: tipsCount = 15
+        case 2: tipsCount = 20
+        default:
+            tipsCount = 0
+        }
     }
 }
 
