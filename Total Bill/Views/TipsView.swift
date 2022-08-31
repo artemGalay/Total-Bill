@@ -7,13 +7,12 @@
 
 import UIKit
 
-class TipsView: UIView {
+final class TipsView: UIView {
 
     private lazy var tipsLabel: UILabel = {
         let label = UILabel()
         label.text = "Persons"
         label.textColor = #colorLiteral(red: 0.2454499006, green: 0.2894837558, blue: 0.3496103287, alpha: 1)
-        label.font = UIFont(name: "Avenir Next", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     } ()
@@ -41,6 +40,11 @@ class TipsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        tipsLabel.font = UIFont(name: "Avenir Next", size: frame.width / 26.7)
+    }
+
     private func setupHierarchy() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(tipsLabel)
@@ -57,11 +61,12 @@ class TipsView: UIView {
         NSLayoutConstraint.activate([
             tipsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             tipsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            tipsLabel.heightAnchor.constraint(equalToConstant: 20),
 
             collectionView.topAnchor.constraint(equalTo: tipsLabel.bottomAnchor, constant: 2),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            collectionView.heightAnchor.constraint(equalToConstant: 100)
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
 
     }
@@ -95,7 +100,7 @@ extension TipsView: UICollectionViewDelegate, UICollectionViewDataSource {
 extension TipsView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width / 4.5,
-               height: collectionView.frame.width / 4.5)
+        CGSize(width: collectionView.frame.width / 5,
+               height: collectionView.frame.width / 5)
     }
 }
