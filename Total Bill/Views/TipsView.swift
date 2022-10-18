@@ -74,7 +74,6 @@ final class TipsView: UIView {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
-
     }
 }
 
