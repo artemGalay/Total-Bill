@@ -32,7 +32,6 @@ final class PersonsView: UIView {
         button.setTitle("-", for: .normal)
         button.tintColor = #colorLiteral(red: 0.3764705882, green: 0.4196078431, blue: 0.4901960784, alpha: 1)
         button.isEnabled = false
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 60)
         button.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -42,7 +41,6 @@ final class PersonsView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("+", for: .normal)
         button.tintColor = #colorLiteral(red: 0.3764705882, green: 0.4196078431, blue: 0.4901960784, alpha: 1)
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 60)
         button.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
